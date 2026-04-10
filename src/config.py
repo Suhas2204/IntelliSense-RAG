@@ -20,7 +20,7 @@ TOP_K = 3                 # number of chunks to retrieve per query
 COLLECTION_NAME = "sensor_docs"
 
 # ── LLM (Qwen via HuggingFace Inference API — free tier) ──
-LLM_MODEL = "Qwen/Qwen2.5-7B-Instruct"
+LLM_MODEL = "Qwen/Qwen2.5-72B-Instruct"
 LLM_TEMPERATURE = 0.3     # low = more factual, less creative
 LLM_MAX_TOKENS = 512
 

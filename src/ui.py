@@ -11,6 +11,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt, QThread, Signal
 from PySide6.QtGui import QFont, QColor
+from PySide6.QtGui import QTextCursor
 
 logger = logging.getLogger(__name__)
 
@@ -138,9 +139,9 @@ class ChatWindow(QMainWindow):
     def _on_answer(self, answer: str):
         # Remove "Thinking..." line
         cursor = self.chat_display.textCursor()
-        cursor.movePosition(cursor.End)
-        cursor.movePosition(cursor.StartOfBlock, cursor.KeepAnchor)
-        cursor.movePosition(cursor.PreviousBlock, cursor.KeepAnchor)
+        cursor.movePosition(QTextCursor.MoveOperation.End)
+        cursor.movePosition(QTextCursor.MoveOperation.StartOfBlock, QTextCursor.MoveMode.KeepAnchor)
+        cursor.movePosition(QTextCursor.MoveOperation.PreviousBlock, QTextCursor.MoveMode.KeepAnchor)
         cursor.removeSelectedText()
 
         self._append_message("IntelliSense", answer, "#D4500F")

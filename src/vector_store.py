@@ -4,8 +4,10 @@ vector_store.py — Embed chunks, store in ChromaDB, and retrieve.
 Pipeline stage: Document chunks  →  ChromaDB index  →  relevant chunks
 """
 import logging
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
+# from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_community.vectorstores import Chroma
 from src.config import EMBEDDING_MODEL, CHROMA_DIR, COLLECTION_NAME, TOP_K
 
 logger = logging.getLogger(__name__)
