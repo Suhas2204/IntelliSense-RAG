@@ -41,7 +41,7 @@ intellisense-rag/
 │   ├── rag_pipeline.py         # RAGPipeline class — orchestrates all stages
 │   └── ui.py                   # PySide6 chat window
 ├── app.py                      # Entry point
-├── requirements.txt
+├── pyproject.toml
 └── README.md
 ```
 
@@ -54,7 +54,7 @@ source venv/bin/activate        # Linux/Mac
 venv\Scripts\activate           # Windows
 
 # 2. Install dependencies
-pip install -r requirements.txt
+uv sync
 
 # 3. Set HuggingFace token (free — get one at huggingface.co/settings/tokens)
 export HF_TOKEN="hf_your_token_here"
