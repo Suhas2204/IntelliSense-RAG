@@ -1,0 +1,15 @@
+[project]
+name = "intellisense-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "chromadb>=0.4.0",
+    "huggingface-hub>=0.20.0",
+    "langchain>=0.2.0",
+    "langchain-community>=0.2.0",
+    "pypdf>=3.0.0",
+    "pyside6>=6.6.0",
+    "sentence-transformers>=2.2.0",
+]
