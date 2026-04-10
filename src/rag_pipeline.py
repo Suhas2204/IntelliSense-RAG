@@ -8,7 +8,8 @@ import logging
 from src.config import CHROMA_DIR
 from src.pdf_loader import load_pdfs, chunk_documents
 from src.vector_store import build_vector_store, load_vector_store, Retriever
-from src.llm_chain import build_llm, build_chain, generate_answer
+# from src.llm_chain import build_llm, build_chain, generate_answer
+from src.llm_chain import build_llm, generate_answer
 
 logger = logging.getLogger(__name__)
 
@@ -35,8 +36,7 @@ class RAGPipeline:
         self.retriever = Retriever(vs)
 
         # Step 3: Create LLM chain
-        llm = build_llm()
-        self.chain = build_chain(llm)
+        self.llm = build_llm()
 
         logger.info("Pipeline ready — waiting for queries")
 
@@ -49,5 +49,5 @@ class RAGPipeline:
         context = "\n\n".join(doc.page_content for doc, _score in results)
 
         # Generate grounded answer
-        answer = generate_answer(self.chain, context, question)
+        answer = generate_answer(self.llm, context, question)
         return answer
