@@ -3,7 +3,8 @@ config.py — Central configuration for IntelliSense RAG.
 All tuneable parameters live here. No magic numbers elsewhere.
 """
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 # ── Paths ──
 PDF_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "docs")
 CHROMA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "chroma_db")
